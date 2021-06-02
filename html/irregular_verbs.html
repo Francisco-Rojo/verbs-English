@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  	<!-- google fonts -->
+  	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+	<!-- ARCHIVOS CSS BOOTSTRAP 4 -->
+  	<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="../css/estilos_irregular_verbs.css">
+
+	<title>Irregular_verbs</title>
+     <!-- ARCHIVO SCROLLREVEAL --> 
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+
+	<nav class="container-fluid">
+		<div class="container">
+			<ul class="d-flex justify-content-center justify-content-md-around p-1 rounded font-weight-bold">
+				<li><div class="p-2"><a href="../index.html">Inicio</a></div></li>
+				<li><div class="p-2"><a href="../download/lista_ingles.pdf" download="lista de ingles">Descarga</a></div></li>
+				<li><div class="p-2"><a href="https://francisco-rojo-miweb.firebaseapp.com/">Contacto</a></div></li>
+			</ul>
+		</div>
+  	</nav>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center banner_img">
+            <img class="d-none d-md-block" width="370px" src="../img/logo.png">
+            <img class="d-block d-md-none" width="320px" src="../img/logo.png">
+        </div>
+    </div>
+
+  	<article class="container contenedor p-4 ">
+  		<section class="row">
+  			<div class="col-12 text-center">
+                <h5 id="intentos"></h5>
+  				<h1 class="display-4 text-center d-none d-md-block" style="color: #566573;">Irregular Verbs</h1>
+  				<h1 class="text-center d-block d-md-none" style="color: #566573;">Irregular Verbs</h1>
+  			</div>
+
+  			<div class="col-12 text-center" id="contenedor">
+                <h3 id="get_verb"></h3>
+                <form id="frm1">
+                    <input id="translation" type="text" placeholder="verb in spanish" autofocus><br><br>
+                    <button id="btn1" class="btn btn-primary btn-lg" type="button" onclick="get_translation()">Send</button>
+                    <button id="btn2" class="btn btn-dark btn-lg" type="button" onclick="next()">Next</button>
+                </form>
+                <h3 class="mt-4" id="counting" style="color: #566573;"></h3>
+                <p class="mt-3" id="result"></p>
+
+                <button id="btn3" class="btn btn-dark btn-lg mt-3" type="button" onclick="see()">Ver</button>
+                
+            </div>
+
+		    <div class="col-12 text-center" id="contenedor2" style="display: none;">
+		        <h1 id="win"></h1>
+		        <button class="btn btn-dark btn-lg" type="button" onclick="reset()">Reset</button>
+		    </div>
+		           
+  		</section>
+  	</article>
+
+    <footer class="text-center">
+      <div class="container">
+        <p class="m-0 py-3">Copyright © 2021. Todos los derechos reservados por 
+            <a id="yo" href="https://francisco-rojo-miweb.firebaseapp.com/"><strong>
+                Francisco Javier Rojo Córdova
+            </strong> </a> </p>
+      </div>
+    </footer>
+
+
+	<div class="burbujas d-none d-md-block">
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+    </div>
+
+
+    <!-- ARCHIVOS BOOTSTRAP JAVASCRIPT -->
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+    <script src="../js/irregular_verbs.js"></script>
+</body>
+</html>

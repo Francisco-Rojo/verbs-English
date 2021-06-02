@@ -1,16 +1,10 @@
 * {margin: 0; padding: 0;}
 
-body{
+
+body {
 	background-color: #2E86C1;
-	color: white;
 	font-family: 'Varela Round', sans-serif;
-	font-size: 15px;
 }
-
-h1, h2, h3, h4, h5, h6 {font-family: 'Fredoka One', cursive;}
-
-button {font-family: 'Poppins', sans-serif}
-
 
 nav {
     margin-top: 5px; 
@@ -24,20 +18,36 @@ nav ul li a {
 	color: white;
 }
 
+.contenedor {
+	background-color: white;
+	border-radius: 17px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {font-family: 'Fredoka One', cursive;}
+
+input {
+	font-size: 22px;
+	text-align: center;
+	border-radius: 17px;
+	padding: 17px;
+	width: 70%;
+}
+
 footer {
     margin-top: 20px; 
     font-size: 12px; 
     color: black;
 }
 
+#yo {color: black;}	
 
-#yo {color: black;}
 
 .banner_img{
     animation: movimiento 2.7s linear infinite;
 }
 
-/* burbujas */
+
 
 .burbuja{
     border-radius: 50%;
@@ -144,8 +154,10 @@ footer {
     }
 }
 
+
 @keyframes movimiento{
-    0% {transform: translateY(0);}
-    50% {transform: translateY(17px);}
-    100% {transform: translateY(0);}
+    0% {transform: translateX(0);}
+    50% {transform: translateX(17px);}
+    100% {transform: translateX(0);}
+
 }
