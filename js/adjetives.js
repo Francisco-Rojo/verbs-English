@@ -1,3 +1,44 @@
+// ANIMACIONES
+        window.sr = ScrollReveal();
+
+        sr.reveal('nav', {
+            duration: 1500,
+            delay: 700
+        });
+
+        sr.reveal('h1', {
+            duration: 1000,
+            delay: 700
+        });
+
+
+        sr.reveal('img', {
+            duration: 1500,
+            origin: 'top',
+            distance: '250px',
+            viewFactor: 0.7
+        }); 
+
+        sr.reveal('#btn1', {
+          
+            duration: 1500,
+            origin: 'left',
+            distance: '250px'
+        });
+
+        sr.reveal('#btn2', {
+          
+            duration: 1500,
+            origin: 'right',
+            distance: '250px'
+        });
+
+        sr.reveal('#btn3', {
+          
+            duration: 1500,
+            origin: 'bottom',
+            distance: '250px'
+        });
 
 
 
@@ -21,3 +62,119 @@ let adjetives_translation = ["enojado", "feliz", "triste", "hambriento", "somnol
 
 console.log(adjetives.length);
 console.log(adjetives_translation.length);
+
+
+
+
+
+ // LOGICA DE VERBOS
+document.getElementById("result").innerHTML = "-";  // agregamos como punto inicial un -
+document.getElementById("intentos").innerHTML = "intentos: " + 20;  // agregamos como punto inicial 15 en intentos
+document.getElementById("counting").innerHTML = "POINTS: " + 3; // agregamos como punto inicial 3 en vida
+let counter = 3; // CONTADOR DE VIDAS 3
+let number; // NUMERO ALEATORIO
+let intentos = 20;  //numero de intentos
+
+
+
+number_random(); // llamamos la funcion number_random()
+
+
+function number_random() {
+    number = Math.random(); // llamamos la funcion math.random para poder obtener un numero aleatorio
+    number = number * 73; // multiplicamos por 100 por que es el total del numero de datos en la lista
+    
+    // imprimimos los verbos obtenidos en la lista
+    document.getElementById("get_adjetive").innerHTML = adjetives[Math.round(number)];
+}
+
+
+
+ // funcion click boton
+function get_translation() {
+    document.getElementById("intentos").innerHTML = "intentos: " + --intentos; 
+    let data = document.getElementById("translation").value;
+
+    if (data == adjetives_translation[Math.round(number)] ) {
+                document.getElementById("result").innerHTML = "Good";
+                document.getElementById("counting").innerHTML = "POINTS: " + ++counter;
+                document.getElementById("counting").style = "color: lime;";
+                document.getElementById("result").style = "color: lime; font-size: 25px;";
+                number_random();
+                resetForm();
+
+    } else {
+                document.getElementById("result").innerHTML = "Bad";
+                document.getElementById("counting").innerHTML = "POINTS: " + --counter;
+                document.getElementById("counting").style = "color: red;";
+                document.getElementById("result").style = "color: red; font-size: 25px;";
+    }
+
+            
+    if (counter == 10) {
+                document.getElementById("counting").innerHTML = "GOOOD";
+                document.getElementById("contenedor2").style = "display : block";
+                document.getElementById("contenedor").style = "display : none";
+                document.getElementById("win").innerHTML = "YOU WIN";
+                document.getElementById("win").style = "color: lime";
+    }
+
+    if (counter == 0) {
+                document.getElementById("contenedor2").style = "display : block";
+                document.getElementById("contenedor").style = "display : none";
+                document.getElementById("win").innerHTML = "YOU LOST";
+                document.getElementById("win").style = "color: red";
+    }
+}
+
+
+// funcion del boton next
+function next() {
+    number_random(); // llamamos la funcion de numero aleatorio
+    document.getElementById("intentos").innerHTML = "intentos: " + --intentos;  // decrementamos los intentos
+    resetForm();
+
+    if (intentos == 0) {
+        document.getElementById("contenedor").style = "display : none";
+        document.getElementById("contenedor2").style = "display : block";
+        document.getElementById("win").innerHTML = "SE ACABARON LOS INTENTOS";
+    }
+}
+
+
+
+function see() {
+    document.getElementById("result").innerHTML = adjetives_translation[Math.round(number)];
+    document.getElementById("counting").innerHTML = "POINTS: " + --counter;
+    document.getElementById("counting").innerHTML = "POINTS: " + --counter;
+    document.getElementById("counting").style = "color: red;";
+    document.getElementById("result").style = "color: black; font-size: 18px;";
+    document.getElementById("translation").focus();
+
+    if (counter <= 0) {
+       document.getElementById("contenedor2").style = "display : block";
+       document.getElementById("contenedor").style = "display : none";
+       document.getElementById("win").innerHTML = "YOU LOST";
+ 	   document.getElementById("win").style = "color: red";
+    }
+}
+
+// recargar la pagina        
+function reset() {
+    location.reload();   
+}
+
+
+// limpiar formulario
+function resetForm() {
+    document.getElementById("frm1").reset();
+    document.getElementById("translation").focus();
+}
+
+
+// bloquear tecla enter
+window.addEventListener("keypress", function(event){
+    if (event.keyCode == 13){
+    event.preventDefault();
+    }
+}, false);
